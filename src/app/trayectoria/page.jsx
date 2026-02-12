@@ -27,7 +27,7 @@ const formacionSii = [
 export default function TrayectoriaPage() {
   return (
     <main className="min-h-screen bg-white">
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden border-t border-sky-500">
         <div className="pointer-events-none absolute inset-0 bg-[url('/assets/img/silvertTriangleGeometricBackground.png')] bg-cover opacity-10" />
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10 py-12">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-stretch">
@@ -62,10 +62,10 @@ export default function TrayectoriaPage() {
               </p>
             </div>
 
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-end ">
               <div className="relative w-full max-w-md h-full">
-                <div className="absolute -inset-3 rounded-3xl bg-sky-100/60 blur-2xl" />
-                <div className="relative h-full min-h-[360px]">
+                <div className="absolute -inset-3 rounded-3xl bg-sky-100/60  blur-2xl" />
+                <div className="relative h-full min-h-[360px] ">
                   <Image
                     src="/assets/img/Trayectoriaprofesional.jpg"
                     alt="Oscar Fuentes"
@@ -77,7 +77,7 @@ export default function TrayectoriaPage() {
             </div>
           </div>
 
-          <div className="mt-8 rounded-2xl border border-sky-100 bg-white/80 p-5 text-sm text-zinc-700 shadow-sm">
+          <div className="mt-8 rounded-2xl border border-sky-300 bg-white/80 p-5 text-sm text-zinc-700 shadow-sm">
             <p>
               A contar de Octubre de 2023 ejerce como asesor independiente.
             </p>
@@ -95,8 +95,8 @@ export default function TrayectoriaPage() {
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10 pb-12">
         <div className="grid gap-6 lg:grid-cols-2">
-          <div className="grid gap-6">
-            <div className="rounded-3xl bg-gradient-to-br from-white via-sky-50 to-white p-6 ring-1 ring-sky-100/70">
+          <div className="grid gap-6 ">
+            <div className="rounded-3xl border border-sky-200 bg-gradient-to-br from-white via-sky-50 to-white p-6 ring-1 ring-sky-100/70">
               <h2 className="font-urbanist text-xl font-semibold text-zinc-900">
                 Formación Profesional
               </h2>
@@ -112,7 +112,7 @@ export default function TrayectoriaPage() {
               </ul>
             </div>
 
-            <div className="rounded-3xl bg-white p-6 ring-1 ring-sky-100/70">
+            <div className="rounded-3xl bg-white p-6 ring-1 ring-sky-100/70 border border-sky-200">
               <h2 className="font-urbanist text-xl font-semibold text-zinc-900">
                 Experiencia como Abogado y Consultor Tributario
               </h2>
@@ -134,7 +134,7 @@ export default function TrayectoriaPage() {
             </div>
           </div>
 
-          <div className="rounded-3xl bg-gradient-to-br from-white via-sky-50 to-white p-6 ring-1 ring-sky-100/70">
+          <div className="rounded-3xl border border-sky-200 bg-gradient-to-br from-white via-sky-50 to-white p-6 ring-1 ring-sky-100/70">
             <h3 className="font-urbanist text-xl font-semibold text-zinc-900">
               Formación técnica impartida por el SII
             </h3>

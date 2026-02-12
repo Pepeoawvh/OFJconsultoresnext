@@ -21,7 +21,7 @@ export default function Navbar(){
 
   return (
     <>
-      <header className="relative overflow-hidden border-b border-white/40 bg-[url('/assets/img/BlueTrianglePattern.jpg')] bg-cover bg-left">
+      <header className="relative border-b border-white/40 bg-[url('/assets/img/BlueTrianglePattern.jpg')] bg-cover bg-left">
         <div className="pointer-events-none absolute inset-0 bg-white/70 backdrop-blur-md" />
         <div className="container relative mx-auto flex items-center justify-between py-4 px-4 sm:px-6 lg:px-10">
           <div className="flex items-center gap-3">
@@ -81,14 +81,14 @@ export default function Navbar(){
                   <Link
                     href="/trayectoria"
                     onClick={() => setOpen(false)}
-                    className="py-2 text-sm font-medium text-zinc-700 hover:text-zinc-900"
+                    className="inline-flex items-center justify-center rounded-full bg-sky-100 text-sky-900 px-4 py-2 text-sm font-medium shadow-sm hover:bg-sky-200 transition-colors"
                   >
                     Trayectoria Profesional
                   </Link>
                   <Link
                     href="#quienes"
                     onClick={() => setOpen(false)}
-                    className="py-2 text-sm font-medium text-zinc-700 hover:text-zinc-900"
+                    className="inline-flex items-center justify-center rounded-full bg-sky-100 text-sky-900 px-4 py-2 text-sm font-medium shadow-sm hover:bg-sky-200 transition-colors"
                   >
                     Servicios
                   </Link>
@@ -105,7 +105,7 @@ export default function Navbar(){
                   <Link
                     href="/"
                     onClick={() => setOpen(false)}
-                    className="py-2 text-sm font-medium text-zinc-700 hover:text-zinc-900"
+                    className="inline-flex items-center justify-center rounded-full bg-sky-100 text-sky-900 px-4 py-2 text-sm font-medium shadow-sm hover:bg-sky-200 transition-colors"
                   >
                     Inicio
                   </Link>
@@ -128,8 +128,16 @@ export default function Navbar(){
       </header>
 
       {isTrayectoria && openContact && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 p-4">
-          <div className="relative w-full max-w-lg">
+        <div
+          className="fixed inset-0 z-[999] bg-black/50 p-4 overflow-y-auto"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setOpenContact(false)}
+        >
+          <div
+            className="relative mx-auto w-full max-w-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               type="button"
               onClick={() => setOpenContact(false)}

@@ -5,8 +5,8 @@ export default function Footer() {
   return (
     <footer className="mt-16 border-t border-sky-200 bg-linear-to-br from-sky-200 via-white to-sky-300/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="grid gap-8 py-10 md:grid-cols-4 md:items-start">
-          <div className="flex items-center gap-3">
+        <div className="grid gap-8 py-10 text-center md:grid-cols-4 md:items-start md:text-left">
+          <div className="flex items-center justify-center gap-3 md:justify-start">
             <Image
               src="/assets/img/OftLogoHead.png"
               alt="logo"
@@ -25,7 +25,7 @@ export default function Footer() {
 
           <div className="text-sm text-zinc-700 md:justify-self-center">
             <p className="font-medium text-zinc-900">Correo</p>
-            <div className="mt-3 flex items-center gap-2 text-zinc-600">
+            <div className="mt-3 flex items-center justify-center gap-2 text-zinc-600 md:justify-start">
               <svg
                 width="18"
                 height="18"
@@ -77,7 +77,7 @@ export default function Footer() {
 
           <div className="text-sm md:justify-self-center">
             <p className="font-medium text-zinc-900">Redes sociales</p>
-            <div className="mt-3 flex items-center gap-2 text-[#d25d1a]">
+            <div className="mt-3 flex items-center justify-center gap-2 text-[#d25d1a] md:justify-start">
               <svg
                 width="18"
                 height="18"
@@ -104,7 +104,7 @@ export default function Footer() {
                 />
                 <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
               </svg>
-              <Link href="https://www.instagram.com/" className="hover:text-zinc-900">
+              <Link href="https://www.instagram.com/abogado.oscarfuentes" className="hover:text-zinc-900">
                 Instagram
               </Link>
             </div>
