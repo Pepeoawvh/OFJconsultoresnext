@@ -10,7 +10,7 @@ export default function Hero() {
             src="/assets/img/bannerjumbo.jpg"
             alt="Banner"
             fill
-            className="object-cover object-[15%_center] md:object-right"
+            className="object-cover object-[35%_center] md:object-right"
           />
           {/* Overlay para legibilidad en móvil */}
           <div className="absolute inset-0 bg-white/60 pointer-events-none md:hidden" />
