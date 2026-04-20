@@ -40,7 +40,7 @@ export default function TrayectoriaPage() {
               </h1>
               <p className="mt-4 text-sm leading-relaxed text-zinc-700">
                 Oscar es abogado de la Universidad del Desarrollo de Concepción con
-                experiencia en juicios durante 12 años, 10 de los cuales han sido en
+                experiencia en juicios desde el año 2012, 10 de los cuales han sido en
                 materias exclusivamente tributarias, tanto en cobranzas realizadas por
                 la Tesorería General de la República, como en juicios por determinación
                 de tributos que han sido establecidos por el Servicio de Impuestos Internos.
@@ -84,10 +84,7 @@ export default function TrayectoriaPage() {
           </div>
 
           <p className="mt-6 text-sm leading-relaxed text-zinc-700">
-            Oriundo de San Carlos de Itihue, pertenece a la tercera generación de abogados
-            de su familia, la que se iniciara en la tradición de las leyes de mano de su abuelo,
-            Oscar Raúl Fuentes Venegas (Universidad de Chile, 1942), carrera que fuera continuada
-            por su padre, Raúl Fuentes Sepúlveda (Universidad de Concepción, 1981). Su interés
+            Su interés
             está en los aspectos tributarios y procesales de la legislación chilena.
           </p>
         </div>

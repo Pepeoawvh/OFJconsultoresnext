@@ -7,6 +7,7 @@ export default function ContactForm(){
     rut:'',
     email:'',
     telefono:'',
+    domicilio:'',
     motivo:'',
     modalidad:'Remoto',
     message:'',
@@ -31,7 +32,7 @@ export default function ContactForm(){
       })
       if (res.ok) {
         setStatus('ok')
-        setForm({name:'', rut:'', email:'', telefono:'', motivo:'', modalidad:'Remoto', message:'', honeypot:''})
+        setForm({name:'', rut:'', email:'', telefono:'', domicilio:'', motivo:'', modalidad:'Remoto', message:'', honeypot:''})
       } else {
         setStatus('error')
       }
@@ -51,6 +52,7 @@ export default function ContactForm(){
         <input aria-label="RUT" name="rut" placeholder="RUT del Contribuyente ej: 11111111-k" value={form.rut} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" />
         <input aria-label="Correo" name="email" placeholder="Correo Electrónico" type="email" value={form.email} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" required />
         <input aria-label="Teléfono" name="telefono" placeholder="Teléfono +56 x xxxx xxxx" value={form.telefono} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" />
+        <input aria-label="Domicilio" name="domicilio" placeholder="Domicilio" value={form.domicilio} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" />
 
         <select aria-label="Motivo" name="motivo" value={form.motivo} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400">
           <option value="">Motivo de consulta</option>

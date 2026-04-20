@@ -14,6 +14,7 @@ export async function POST(request){
       rut,
       email,
       telefono,
+      domicilio,
       motivo,
       modalidad,
       message,
@@ -54,6 +55,7 @@ export async function POST(request){
       <p><strong>RUT:</strong> ${rut || 'No informado'}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Teléfono:</strong> ${telefono || 'No informado'}</p>
+      <p><strong>Domicilio:</strong> ${domicilio || 'No informado'}</p>
       <p><strong>Motivo:</strong> ${motivo || 'No informado'}</p>
       <p><strong>Modalidad:</strong> ${modalidad || 'No informado'}</p>
       <p><strong>Mensaje:</strong></p>

@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import WhatsappButton from "./WhatsappButton";
 import ContactForm from "./ContactForm";
 
 export default function Navbar(){
@@ -150,9 +149,6 @@ export default function Navbar(){
           </div>
         </div>
       )}
-
-      {/* WhatsApp floating button */}
-      <WhatsappButton />
     </>
   )
 }
