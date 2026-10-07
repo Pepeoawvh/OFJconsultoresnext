@@ -80,7 +80,7 @@ export async function POST(request) {
         <li><strong>Motivo:</strong> ${motivo || 'No informado'}</li>
         <li><strong>Mensaje:</strong> ${(message || '').replace(/\n/g, '<br/>') || 'Sin mensaje'}</li>
       </ul>
-      <p>Saludos cordiales,<br>Oscar Fuentes - Abogado Tributario</p>
+      <p>Saludos cordiales,<br>Oscar Fuentes J. - Abogado</p>
     `
 
     const { error: errorConfirm } = await resend.emails.send({
