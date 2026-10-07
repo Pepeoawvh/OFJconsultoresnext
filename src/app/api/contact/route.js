@@ -6,6 +6,10 @@ function badRequest(message) {
   return new Response(JSON.stringify({ error: message }), { status: 400 })
 }
 
+function cleanEnv(value) {
+  return (value || '').trim().replace(/^["']|["']$/g, '').trim()
+}
+
 export async function POST(request) {
   try {
     const body = await request.json()
@@ -25,13 +29,16 @@ export async function POST(request) {
     if (!name || !email) return badRequest('missing required fields')
 
     const { RESEND_API_KEY, CONTACT_TO, CONTACT_FROM } = process.env
+    const apiKey = cleanEnv(RESEND_API_KEY)
+    const to = cleanEnv(CONTACT_TO)
+    const from = cleanEnv(CONTACT_FROM)
 
-    if (!RESEND_API_KEY || !CONTACT_TO || !CONTACT_FROM) {
+    if (!apiKey || !to || !from) {
       console.error('Missing Resend environment variables')
       return new Response(JSON.stringify({ error: 'email not configured' }), { status: 500 })
     }
 
-    const resend = new Resend(RESEND_API_KEY)
+    const resend = new Resend(apiKey)
 
     const subject = `Nuevo contacto de ${name}`
     const html = `
@@ -48,8 +55,8 @@ export async function POST(request) {
     `
 
     const { error: errorAdmin } = await resend.emails.send({
-      from: CONTACT_FROM,
-      to: CONTACT_TO,
+      from,
+      to,
       replyTo: email,
       subject,
       html,
@@ -77,7 +84,7 @@ export async function POST(request) {
     `
 
     const { error: errorConfirm } = await resend.emails.send({
-      from: CONTACT_FROM,
+      from,
       to: email,
       subject: subjectConfirm,
       html: htmlConfirm,
