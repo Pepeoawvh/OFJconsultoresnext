@@ -5,6 +5,15 @@ import About from "../components/About";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 
+export const metadata = {
+  title: "Inicio",
+  description: "Abogado tributario Oscar Fuentes. 10 años de experiencia en SII y TGR. Especialista en impugnaciones tributarias, litigios fiscales, delitos tributarios y prescripción de deudas. Asesoría tributaria con enfoque estratégico.",
+  openGraph: {
+    title: "Oscar Fuentes - Abogado Tributario Especializado",
+    description: "Asesoría tributaria profesional con 10 años de experiencia en la Administración Tributaria de Chile",
+  },
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white from-white to-zinc-50">

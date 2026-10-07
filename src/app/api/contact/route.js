@@ -1,13 +1,13 @@
-import nodemailer from 'nodemailer'
+import { Resend } from 'resend'
 
 export const runtime = 'nodejs'
 
-function badRequest(message){
+function badRequest(message) {
   return new Response(JSON.stringify({ error: message }), { status: 400 })
 }
 
-export async function POST(request){
-  try{
+export async function POST(request) {
+  try {
     const body = await request.json()
     const {
       name,
@@ -24,29 +24,14 @@ export async function POST(request){
     if (honeypot) return badRequest('spam')
     if (!name || !email) return badRequest('missing required fields')
 
-    const {
-      SMTP_HOST,
-      SMTP_PORT,
-      SMTP_USER,
-      SMTP_PASS,
-      CONTACT_TO,
-      CONTACT_FROM
-    } = process.env
+    const { RESEND_API_KEY, CONTACT_TO, CONTACT_FROM } = process.env
 
-    if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !CONTACT_TO) {
-      console.error('Missing SMTP environment variables')
+    if (!RESEND_API_KEY || !CONTACT_TO || !CONTACT_FROM) {
+      console.error('Missing Resend environment variables')
       return new Response(JSON.stringify({ error: 'email not configured' }), { status: 500 })
     }
 
-    const transporter = nodemailer.createTransport({
-      host: SMTP_HOST,
-      port: Number(SMTP_PORT),
-      secure: Number(SMTP_PORT) === 465,
-      auth: {
-        user: SMTP_USER,
-        pass: SMTP_PASS
-      }
-    })
+    const resend = new Resend(RESEND_API_KEY)
 
     const subject = `Nuevo contacto de ${name}`
     const html = `
@@ -62,16 +47,48 @@ export async function POST(request){
       <p>${(message || '').replace(/\n/g, '<br/>') || 'Sin mensaje'}</p>
     `
 
-    await transporter.sendMail({
-      from: CONTACT_FROM || `"Formulario Web" <${SMTP_USER}>`,
+    const { error: errorAdmin } = await resend.emails.send({
+      from: CONTACT_FROM,
       to: CONTACT_TO,
       replyTo: email,
       subject,
-      html
+      html,
     })
 
+    if (errorAdmin) {
+      console.error('Resend error (admin):', errorAdmin)
+      return new Response(JSON.stringify({ error: 'failed to send email' }), { status: 500 })
+    }
+
+    const subjectConfirm = 'Gracias por contactarnos - Oscar Fuentes Abogado'
+    const htmlConfirm = `
+      <h2>Gracias por tu consulta</h2>
+      <p>Hola ${name},</p>
+      <p>Hemos recibido tu mensaje correctamente. Te contactaremos a la brevedad.</p>
+      <p><strong>Resumen de tu consulta:</strong></p>
+      <ul>
+        <li><strong>Nombre:</strong> ${name}</li>
+        <li><strong>Email:</strong> ${email}</li>
+        <li><strong>Teléfono:</strong> ${telefono || 'No informado'}</li>
+        <li><strong>Motivo:</strong> ${motivo || 'No informado'}</li>
+        <li><strong>Mensaje:</strong> ${(message || '').replace(/\n/g, '<br/>') || 'Sin mensaje'}</li>
+      </ul>
+      <p>Saludos cordiales,<br>Oscar Fuentes - Abogado Tributario</p>
+    `
+
+    const { error: errorConfirm } = await resend.emails.send({
+      from: CONTACT_FROM,
+      to: email,
+      subject: subjectConfirm,
+      html: htmlConfirm,
+    })
+
+    if (errorConfirm) {
+      console.error('Resend error (confirmation):', errorConfirm)
+    }
+
     return new Response(JSON.stringify({ ok: true }), { status: 200 })
-  }catch(err){
+  } catch (err) {
     console.error(err)
     return new Response(JSON.stringify({ error: 'invalid request' }), { status: 400 })
   }

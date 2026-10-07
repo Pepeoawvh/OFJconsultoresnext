@@ -1,0 +1,11 @@
+# robots.txt para ofuentes.cl
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ofuentes.cl/sitemap.xml
+
+# Bloquear archivos innecesarios
+Disallow: /api/
+Disallow: /_next/
+Disallow: /node_modules/

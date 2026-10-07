@@ -1,5 +1,14 @@
 import Image from "next/image";
 
+export const metadata = {
+  title: "Trayectoria Profesional",
+  description: "Conoce la trayectoria de Oscar Fuentes Jiménez: 12 años de experiencia en juicios tributarios, 10 años en SII y TGR. Magíster en Derecho Tributario UDD. Formación especializada en litigación tributaria y delitos fiscales.",
+  openGraph: {
+    title: "Trayectoria Profesional - Oscar Fuentes Abogado",
+    description: "12 años de experiencia en juicios tributarios. Ex abogado de TGR y asesor del SII. Formación académica y profesional especializada.",
+  },
+};
+
 const formacionUniversitaria = [
   "Abogado, Corte Suprema de Justicia, UDD Concepción. (enero 2012)",
   "Magíster en Derecho de la Empresa, mención Derecho Tributario, UDD Concepción. (noviembre 2013)",
