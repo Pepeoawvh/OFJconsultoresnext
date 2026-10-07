@@ -49,12 +49,12 @@ export default function ContactForm(){
             </div>
       <div className="grid grid-cols-1 gap-3">
         <input id="nombre-contribuyente" aria-label="Nombre" name="name" placeholder="Nombre del Contribuyente" value={form.name} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" required />
-        <input aria-label="RUT" name="rut" placeholder="RUT del Contribuyente ej: 11111111-k" value={form.rut} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" />
+        <input aria-label="RUT" name="rut" placeholder="RUT del Contribuyente ej: 11111111-k" value={form.rut} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" required />
         <input aria-label="Correo" name="email" placeholder="Correo Electrónico" type="email" value={form.email} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" required />
-        <input aria-label="Teléfono" name="telefono" placeholder="Teléfono +56 x xxxx xxxx" value={form.telefono} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" />
-        <input aria-label="Domicilio" name="domicilio" placeholder="Domicilio" value={form.domicilio} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" />
+        <input aria-label="Teléfono" name="telefono" placeholder="Teléfono +56 x xxxx xxxx" value={form.telefono} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" required />
+        <input aria-label="Domicilio" name="domicilio" placeholder="Domicilio" value={form.domicilio} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" required />
 
-        <select aria-label="Motivo" name="motivo" value={form.motivo} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400">
+        <select aria-label="Motivo" name="motivo" value={form.motivo} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" required>
           <option value="">Motivo de consulta</option>
           <option value="consulta_general">Consulta General</option>
           <option value="contingencia_sii">Contingencia SII</option>
@@ -63,13 +63,13 @@ export default function ContactForm(){
           <option value="otros">Otros</option>
         </select>
 
-        <select aria-label="Modalidad" name="modalidad" value={form.modalidad} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400">
+        <select aria-label="Modalidad" name="modalidad" value={form.modalidad} onChange={onChange} className="h-10 w-full rounded-sm border border-zinc-300 bg-white px-4 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" required>
           <option value="">Modalidad de atención</option>
           <option value="Remoto">Remoto</option>
           <option value="Presencial">Presencial</option>
         </select>
 
-        <textarea aria-label="Mensaje" name="message" placeholder="Mensaje (opcional)" value={form.message} onChange={onChange} rows={3} className="w-full rounded-sm border border-zinc-300 bg-white px-4 py-2 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400"></textarea>
+        <textarea aria-label="Mensaje" name="message" placeholder="Mensaje" value={form.message} onChange={onChange} rows={3} className="w-full rounded-sm border border-zinc-300 bg-white px-4 py-2 text-sm text-zinc-800 shadow-inner outline-none transition focus:border-zinc-400" required></textarea>
 
         <input name="honeypot" value={form.honeypot} onChange={onChange} className="hidden" />
       </div>

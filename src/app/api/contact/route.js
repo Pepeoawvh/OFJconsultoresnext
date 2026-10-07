@@ -26,7 +26,16 @@ export async function POST(request) {
     } = body || {}
 
     if (honeypot) return badRequest('spam')
-    if (!name || !email) return badRequest('missing required fields')
+
+    const requiredFields = { name, rut, email, telefono, domicilio, motivo, modalidad, message }
+    const missing = Object.entries(requiredFields)
+      .filter(([, value]) => !String(value || '').trim())
+      .map(([key]) => key)
+
+    if (missing.length > 0) {
+      console.error('Missing required fields:', missing)
+      return badRequest('missing required fields')
+    }
 
     const { RESEND_API_KEY, CONTACT_TO, CONTACT_FROM } = process.env
     const apiKey = cleanEnv(RESEND_API_KEY)
